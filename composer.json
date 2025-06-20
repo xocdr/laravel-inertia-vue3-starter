@@ -6,7 +6,7 @@
     "keywords": ["laravel", "framework", "inertia", "vue3", "tailwindcss", "starter", "template"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
@@ -46,14 +46,15 @@
         "post-create-project-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
-            "docker run --rm -u \"$(id -u):$(id -g)\" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs",
+            "docker run --rm -u \"$(id -u):$(id -g)\" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php84-composer:latest composer install --ignore-platform-reqs",
             "./vendor/bin/sail up -d",
             "./vendor/bin/sail npm install",
             "./vendor/bin/sail npm run build",
             "./vendor/bin/sail artisan storage:link",
             "./vendor/bin/sail artisan migrate --graceful --ansi",
             "./vendor/bin/sail exec -T minio mc alias set myminio http://localhost:9000 sail password",
-            "./vendor/bin/sail exec -T minio mc ls myminio/local > /dev/null 2>&1 || ./vendor/bin/sail exec -T minio mc mb myminio/local"
+            "./vendor/bin/sail exec -T minio bash -c 'mc mb myminio/local 2>/dev/null || true'",
+            "./vendor/bin/sail exec -T minio bash -c 'mc anonymous set download myminio/local 2>/dev/null || true'"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
