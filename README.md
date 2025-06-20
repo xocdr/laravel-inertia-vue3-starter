@@ -1,5 +1,9 @@
 # Laravel 12 + Inertia.js + Vue 3 + TailwindCSS 4 Starter Template
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/xocdr/laravel-inertia-vue3-starter.svg?style=flat-square)](https://packagist.org/packages/xocdr/laravel-inertia-vue3-starter)
+[![Total Downloads](https://img.shields.io/packagist/dt/xocdr/laravel-inertia-vue3-starter.svg?style=flat-square)](https://packagist.org/packages/xocdr/laravel-inertia-vue3-starter)
+[![License](https://img.shields.io/packagist/l/xocdr/laravel-inertia-vue3-starter.svg?style=flat-square)](https://packagist.org/packages/xocdr/laravel-inertia-vue3-starter)
+
 A modern starter template for Laravel 12 projects using Inertia.js 2, Vue 3, and TailwindCSS 4. This template provides a solid foundation for building modern web applications with the latest versions of these powerful technologies.
 
 ## Features
@@ -26,7 +30,7 @@ A modern starter template for Laravel 12 projects using Inertia.js 2, Vue 3, and
 You can create a new project using Composer:
 
 ```bash
-composer create-project jkeppens/laravel-inertia-vue3-starter your-project-name
+composer create-project xocdr/laravel-inertia-vue3-starter your-project-name
 cd your-project-name
 ```
 
