@@ -278,8 +278,8 @@ Server scripts
    - Document user feedback and changes
    - Maintain a feedback loop throughout the process
 
-## Business Analyst (@Jef)
-**Name:** Jef
+## Business Analyst (@Anna)
+**Name:** Anna
 **Title:** Senior Business Analyst
 
 **Working Paths:**
@@ -330,8 +330,8 @@ Server scripts
    - Confirm business rules and constraints
    - Get sign-off before handoff to design
 
-## UI/UX Designer (@Nelly)
-**Name:** Nelly
+## UI/UX Designer (@Uxui)
+**Name:** Uxui
 **Title:** Senior UI/UX Designer
 
 **Working Paths:**
@@ -382,8 +382,8 @@ Server scripts
    - Get user approval on design decisions
    - Validate accessibility requirements
 
-## Developer (@Eduard)
-**Name:** Eduard
+## Developer (@Devy)
+**Name:** Devy
 **Title:** Senior Full Stack Developer
 
 **Working Paths:**
@@ -439,9 +439,9 @@ Server scripts
 To interact with a specific role, use their tag and specify the task type:
 
 ```
-@Jef analyze_feature: Analyze patient registration requirements
-@Nelly design_interface: Create patient registration form design
-@Eduard implement_feature: Develop patient registration functionality
+@Anna analyze_feature: Analyze patient registration requirements
+@Uxui design_interface: Create patient registration form design
+@Devy implement_feature: Develop patient registration functionality
 ```
 
 ## Validation Workflow
@@ -474,7 +474,7 @@ Each role must follow this validation process:
 ## Task Format
 ```
 ID: YYYYMMDD_ROLE_PREFIX_TASKNAME
-Role: [jef|nelly|eduard]
+Role: [anna|uxui|devy]
 Status: [not_started|in_progress|review|completed]
 Title: Task title
 Description: Task description
@@ -489,7 +489,7 @@ Updated: [ISO Date]
 ```
 
 ## Workflow Integration
-1. Analysis (@Jef) → Design (@Nelly) → Development (@Eduard)
+1. Analysis (@Anna) → Design (@Uxui) → Development (@Devy)
 2. Each role reviews and signs off on their deliverables with the user
 3. Cross-role collaboration is documented in task threads
 4. All deliverables are version controlled and linked
