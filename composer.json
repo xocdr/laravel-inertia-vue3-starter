@@ -53,7 +53,7 @@
             "./vendor/bin/sail artisan storage:link",
             "./vendor/bin/sail artisan migrate --graceful --ansi",
             "./vendor/bin/sail exec -T minio mc alias set myminio http://localhost:9000 sail password",
-            "./vendor/bin/sail exec -T minio mc mb myminio/local"
+            "./vendor/bin/sail exec -T minio mc ls myminio/local > /dev/null 2>&1 || ./vendor/bin/sail exec -T minio mc mb myminio/local"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
