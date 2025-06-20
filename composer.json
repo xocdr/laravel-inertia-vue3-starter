@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "xocdr/laravel-inertia-vue3-starter",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "A Laravel 12 starter template with Inertia.js 2, Vue 3, and TailwindCSS 4.",
+    "keywords": ["laravel", "framework", "inertia", "vue3", "tailwindcss", "starter", "template"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
