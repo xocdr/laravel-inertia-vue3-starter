@@ -75,6 +75,54 @@ Your application will be available at:
 - Frontend (Vite): http://localhost:5173
 - Backend (Laravel): http://localhost
 
+### Docker Services
+
+The following services are available in your development environment:
+
+| Service   | URL                    | Description                               |
+|-----------|------------------------|-------------------------------------------|
+| Laravel   | http://localhost       | Main application                          |
+| Vite      | http://localhost:5173  | Frontend development server with HMR      |
+| Mailpit   | http://localhost:8025  | Email testing interface                   |
+| MariaDB   | localhost:3306         | Database (use a DB client to connect)     |
+| Redis     | localhost:6379         | Cache/Queue (use a Redis client to connect)|
+| MinIO     | http://localhost:9000  | S3-compatible object storage              |
+| MinIO Console | http://localhost:8900 | MinIO administration interface         |
+
+#### Database Connection Details
+- Host: `mariadb`
+- Port: `3306`
+- Database: `laravel`
+- Username: `sail`
+- Password: `password`
+
+#### Redis Connection Details
+- Host: `redis`
+- Port: `6379`
+- No password required
+
+#### MinIO S3 Storage Details
+- Console URL: http://localhost:8900
+- API URL: http://localhost:9000
+- Access Key: `sail`
+- Secret Key: `password`
+- Default Bucket: `local`
+- Region: `us-east-1`
+
+The MinIO setup is automatically configured to work with Laravel's S3 filesystem driver. A default bucket named 'local' is created during installation. You can access the MinIO Console to manage your buckets and files using the credentials above.
+
+Example usage in Laravel:
+```php
+// Store a file
+Storage::disk('s3')->put('example.txt', 'Contents');
+
+// Get a file
+$contents = Storage::disk('s3')->get('example.txt');
+
+// Generate a temporary URL
+$url = Storage::disk('s3')->temporaryUrl('example.txt', now()->addMinutes(5));
+```
+
 ## Development Commands
 
 - Start all development servers:

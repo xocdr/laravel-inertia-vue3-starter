@@ -44,9 +44,16 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
+            "docker run --rm -u \"$(id -u):$(id -g)\" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs",
+            "./vendor/bin/sail up -d",
+            "./vendor/bin/sail npm install",
+            "./vendor/bin/sail npm run build",
+            "./vendor/bin/sail artisan storage:link",
+            "./vendor/bin/sail artisan migrate --graceful --ansi",
+            "./vendor/bin/sail exec -T minio mc alias set myminio http://localhost:9000 sail password",
+            "./vendor/bin/sail exec -T minio mc mb myminio/local"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
